@@ -1,0 +1,39 @@
+esphome:
+  name: water-level-sensor
+  platform: ESP8266
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "756f0a8e9efe70c2c4c1e962a4a8c79b"
+
+wifi:
+  ssid: "xxxxxxxxxxxxxxx"
+  password: "xxxxxxxxxxxxxxxxxxxxx"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Water-Level-Sensor"
+    password: "AVmCHvXXB8uH"
+
+captive_portal:
+
+binary_sensor:
+  - platform: gpio
+    pin: D1
+    name: water-level-low
+    filters:
+      - delayed_on_off: 500ms
+  - platform: gpio
+    pin: D2
+    name: water-level-high
+    filters:
+      - delayed_on_off: 500ms
+      
+web_server:
+  port: 80
