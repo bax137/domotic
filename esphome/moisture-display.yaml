@@ -13,8 +13,8 @@ ota:
   password: "ec44ae6c6f6f1d0089fcd1a3a0855696"
 
 wifi:
-  ssid: "xxxxxxxxxxxxxxxxxxx"
-  password: "xxxxxxxxxxxxxxxxxxxxx"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -28,18 +28,18 @@ i2c:
 text_sensor:
   - platform: homeassistant
     name: "Moisture cafeier"
-    id: moisture_cafeier
-    entity_id: sensor.zeeflora_cafeier_soil_moisture
+    id: zeeflora_moisture_1
+    entity_id: sensor.zeeflora_1_soil_moisture
     internal: true
   - platform: homeassistant
-    name: "Moisture bonsai"
-    id: moisture_bonsai
-    entity_id: sensor.zeeflora_bonsai_soil_moisture
+    name: "Moisture athurium"
+    id: zeeflora_moisture_2
+    entity_id: sensor.zeeflora_2_soil_moisture
     internal: true
   - platform: homeassistant
-    name: "Moisture cuisine"
-    id: moisture_cuisine
-    entity_id: sensor.soil_moisture_4
+    name: "Moisture 4"
+    id: gw1000_moisture_4
+    entity_id: sensor.gw1000_pro_soil_moisture_4
     internal: true
     
 time:
@@ -52,7 +52,7 @@ font:
     size: 15
   - file: "fonts/arial.ttf"
     id: font_20
-    size: 20
+    size: 18
   - file: 'fonts/slkscr.ttf'
     id: font_value2
     size: 8
@@ -67,18 +67,18 @@ display:
     pages:
     - id: page1
       lambda: |-
-        if (id(moisture_cafeier).has_state()) {
-          it.printf(0, 0, id(font_20), "Cafeier : %s%%", id(moisture_cafeier).state.c_str());
+        if (id(zeeflora_moisture_1).has_state()) {
+          it.printf(0, 0, id(font_20), "Cafeier %s%%", id(zeeflora_moisture_1).state.c_str());
         }
-        if (id(moisture_bonsai).has_state()) {
-          it.printf(6, 21, id(font_20), "Bonsai : %s%%", id(moisture_bonsai).state.c_str());
+        if (id(zeeflora_moisture_2).has_state()) {
+          it.printf(0, 22, id(font_20), "Anthurium %s%%", id(zeeflora_moisture_2).state.c_str());
         }
         // Print time in HH:MM format
         it.strftime(42, 44, id(font_20), "%H:%M", id(esptime).now());
     - id: page2
       lambda: |-
-        if (id(moisture_cuisine).has_state()) {
-          it.printf(0, 0, id(font_20), "Cuisine : %s%%", id(moisture_cuisine).state.c_str());
+        if (id(gw1000_moisture_4).has_state()) {
+          it.printf(0, 0, id(font_20), "Moisture 4 %s%%", id(gw1000_moisture_4).state.c_str());
         }
 
         // Print time in HH:MM format

@@ -13,8 +13,8 @@ ota:
   password: "756f0a8e9efe70c2c4c1e962a4a8c79b"
 
 wifi:
-  ssid: "xxxxxxxxxxxxxxx"
-  password: "xxxxxxxxxxxxxxxxxxxxx"
+  ssid: !secret wifi_ssid2
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
