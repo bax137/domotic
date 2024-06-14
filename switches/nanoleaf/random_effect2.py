@@ -4,7 +4,7 @@ import time
 import random
 
 #shapes/elements/lines
-nanoleaf = [["192.168.1.119","6pvsW4WFnGkL1MsMzeYlN3MqEgQE39lS"],["192.168.1.141","jRZY0kv756ZhmWCf3vjqLJuDXryMxYEd"],["192.168.1.144","5Oa4IiYska9z8S9v7d3GMrZThXtOg3Yg"]]
+nanoleaf = [["192.168.1.119","6pvsW4WFnGkL1MsMzeYlN3MqEgQE39lS"],["192.168.1.141","IKd8KHPjmCOJV119a6DAEBWkALLNcRXu"],["192.168.1.144","5Oa4IiYska9z8S9v7d3GMrZThXtOg3Yg"]]
 #nanoleaf = [["192.168.1.119","6pvsW4WFnGkL1MsMzeYlN3MqEgQE39lS"],["192.168.1.141","pOKkC4XTQ4I9c4y4WHQMQk18HYI10rQx"]]
 
 for device in nanoleaf:
